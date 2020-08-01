@@ -1,4 +1,4 @@
-postgres_docker/*
+docker/*
 portfolio/__pycache__/*
 __pycache__/
 *.py[cod]
