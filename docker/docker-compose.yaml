@@ -1,0 +1,28 @@
+version: "3.1"
+
+services:
+  db:
+    restart: always
+    image: postgres
+    container_name: porfolio-database
+    environment: 
+      - POSTGRES_USER=avishek
+      - POSTGRES_PASS=ov1&0vee
+      - POSTGRES_DB=portfoliodb
+      - POSTGRES_PORT=5432
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: postfolio_pgadmin
+    depends_on: portfoliodb
+    ports:
+      - "5051:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: avishekbarman@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: ov1&0vee
+  volumes: 
+    postgres_data:  
